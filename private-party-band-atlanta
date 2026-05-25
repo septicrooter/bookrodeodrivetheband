@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Private Party Band Atlanta — Rodeo Drive The Band</title>
+<meta name="description" content="Book Atlanta's best private party band. Birthdays, anniversaries, backyard bashes. Kind of like a Southern Fleetwood Mac.">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/private-image-01.png">
+<meta name="theme-color" content="#00f5d4">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>:root{
+  --dark:#080d18;--darker:#050810;
+  --teal:#00f5d4;--teal-dim:#00c4aa;
+  --pink:#ff2d78;--gold:#ffd60a;--warm:#ff6b35;
+  --white:#ffffff;--off-white:#e0fff8;
+  --muted:rgba(255,255,255,0.6);
+  --card:rgba(255,255,255,0.05);
+  --border:rgba(0,245,212,0.25);
+  --glow:0 0 40px rgba(0,245,212,0.3);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Nunito',sans-serif;background:var(--dark);color:var(--white);overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+@keyframes phone-flash{
+  0%,100%{color:var(--teal);text-shadow:0 0 20px rgba(0,245,212,0.4);}
+  50%{color:#fff;text-shadow:0 0 40px rgba(0,245,212,1),0 0 80px rgba(0,245,212,0.6);}
+}
+header{position:fixed;top:0;left:0;right:0;z-index:200;padding:10px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(8,13,24,0.95);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);}
+.hlogo{display:flex;align-items:center;}
+.hlogo-img{height:56px;width:auto;object-fit:contain;
+  filter:drop-shadow(0 0 14px rgba(0,245,212,0.6));}
+.hphone{text-align:right;}
+.hphone .label{font-size:10px;color:var(--muted);text-transform:uppercase;
+  letter-spacing:.14em;font-weight:700;}
+.hphone a{display:block;font-family:'Bebas Neue',sans-serif;font-size:28px;
+  letter-spacing:.04em;line-height:1.1;animation:phone-flash 1.8s ease-in-out infinite;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 30px;
+  border-radius:4px;font-family:'Bebas Neue',sans-serif;font-size:20px;
+  letter-spacing:.06em;transition:all .2s;white-space:nowrap;cursor:pointer;border:none;}
+.btn-teal{background:var(--teal);color:var(--dark);box-shadow:0 0 24px rgba(0,245,212,0.35);}
+.btn-teal:hover{background:var(--teal-dim);transform:translateY(-2px);}
+.btn-gold{background:var(--gold);color:var(--dark);box-shadow:0 0 24px rgba(255,214,10,0.35);}
+.btn-gold:hover{background:#e6c000;transform:translateY(-2px);}
+.btn-pink{background:var(--pink);color:#fff;box-shadow:0 0 24px rgba(255,45,120,0.35);}
+.btn-pink:hover{background:#e0005f;transform:translateY(-2px);}
+.btn-out{background:transparent;border:2px solid var(--teal);color:var(--teal);
+  font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.06em;
+  padding:11px 26px;border-radius:4px;display:inline-flex;align-items:center;gap:8px;
+  transition:all .2s;}
+.btn-out:hover{background:var(--teal);color:var(--dark);}
+.form-box{background:rgba(255,255,255,0.04);border:1px solid var(--border);
+  border-radius:16px;padding:40px;}
+.form-box h3{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:.06em;
+  color:var(--teal);margin-bottom:4px;}
+.form-box .sub{color:var(--muted);font-size:12px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.1em;margin-bottom:28px;display:block;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.fg{display:flex;flex-direction:column;gap:5px;margin-bottom:14px;}
+.fg label{font-size:10px;font-weight:800;text-transform:uppercase;
+  letter-spacing:.14em;color:var(--teal);}
+.fg input,.fg select,.fg textarea{
+  background:rgba(0,245,212,0.05);border:1px solid rgba(0,245,212,0.2);
+  border-radius:4px;padding:11px 13px;color:#fff;
+  font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;transition:border-color .2s;
+  width:100%;box-sizing:border-box;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{
+  outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,245,212,0.1);}
+.fg select option{background:#080d18;}
+.fg textarea{height:96px;resize:vertical;}
+.hp{display:none!important;}
+.btn-submit{width:100%;padding:15px;border:none;border-radius:4px;
+  font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.08em;
+  cursor:pointer;transition:all .2s;}
+.ok{display:none;text-align:center;padding:20px;color:var(--teal);font-weight:800;font-size:15px;}
+.err{display:none;text-align:center;padding:14px;color:var(--pink);font-size:14px;font-weight:700;}
+footer{background:var(--darker);border-top:1px solid var(--border);
+  padding:28px 60px;text-align:center;}
+footer p{color:var(--muted);font-size:13px;}
+footer a{color:var(--teal);font-weight:700;}
+.socials{display:flex;justify-content:center;gap:24px;margin-bottom:14px;flex-wrap:wrap;}
+.socials a{color:var(--muted);font-size:12px;font-weight:800;letter-spacing:.1em;
+  text-transform:uppercase;transition:color .2s;}
+.socials a:hover{color:var(--teal);}
+.sticky{position:fixed;bottom:0;left:0;right:0;z-index:999;
+  background:linear-gradient(90deg,var(--pink),var(--teal));
+  color:var(--dark);padding:10px 24px;
+  display:flex;align-items:center;justify-content:center;gap:16px;
+  transform:translateY(100%);transition:transform .3s;}
+.sticky.on{transform:translateY(0);}
+.sticky p{font-weight:800;font-size:14px;margin:0;}
+.sticky-btn{background:var(--dark);color:var(--teal);padding:7px 20px;border-radius:50px;
+  font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.04em;white-space:nowrap;}
+.sticky-x{background:none;border:none;color:rgba(8,13,24,0.6);font-size:20px;
+  cursor:pointer;margin-left:8px;}
+@media(max-width:768px){
+  html,body{overflow-x:hidden!important;max-width:100vw!important;width:100%!important;}
+  *:not(.hero-bg):not(.fhero-bg):not(.chero-img){max-width:100%;box-sizing:border-box;}
+  header{padding:10px 20px;}
+  nav{display:none!important;}
+  .frow{grid-template-columns:1fr;}
+  footer{padding:24px 20px;}
+  .sticky p{display:none;}
+  .pricing-grid{grid-template-columns:1fr!important;}
+  .hero{padding:100px 20px 60px!important;min-height:80vh;position:relative;overflow:hidden;width:100%;}
+  .hero-bg{background-size:cover!important;background-position:center center!important;
+    position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+    max-width:none!important;}
+  .fhero{padding:90px 20px 48px!important;min-height:55vh;position:relative;overflow:hidden;width:100%;}
+  .fhero-bg{background-size:cover!important;background-position:center 25%!important;
+    position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+    max-width:none!important;}
+  .fg input,.fg select,.fg textarea{width:100%!important;max-width:100%!important;box-sizing:border-box!important;}
+  section[style*="padding"]{padding-left:20px!important;padding-right:20px!important;box-sizing:border-box;}
+}
+@media(max-width:860px){
+  .chero{grid-template-columns:1fr;}
+  .feats,.two,.fsec,.pro,.plug,.venues,.fform,.pform,.party-form,.fsec-in{
+    grid-template-columns:1fr!important;padding-left:20px!important;padding-right:20px!important;}
+  .fgrid,.pgrid,.wgrid,.ptypes{grid-template-columns:1fr!important;}
+  .vgrid{grid-template-columns:1fr 1fr!important;}
+  .mosaic{padding:0 20px!important;}
+  [style*="grid-template-columns:repeat(4,1fr)"]{grid-template-columns:repeat(2,1fr)!important;}
+  [style*="padding:72px 60px"],[style*="padding:64px 60px"],[style*="padding:56px 60px"]{
+    padding-left:20px!important;padding-right:20px!important;}
+}
+</style>
+</head>
+<body>
+<header>
+  <a href="/" class="hlogo">
+    <img src="/private-image-02.jpg" alt="Rodeo Drive The Band" class="hlogo-img">
+  </a>
+  <nav style="display:flex;gap:12px;margin-left:20px;">
+    <a href="/corporate-events-atlanta" style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);transition:color .2s;" onmouseover="this.style.color='var(--teal)'" onmouseout="this.style.color='var(--muted)'">Corporate</a>
+    <a href="/private-party-band-atlanta" style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);transition:color .2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">Private</a>
+    <a href="/southeast-festival-band" style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);transition:color .2s;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color='var(--muted)'">Festivals</a>
+  </nav>
+  <div class="hphone">
+    <div class="label">Book Now</div>
+    <a href="tel:4702424247">(470) 242-4247</a>
+  </div>
+</header>
+<style>
+.phero{padding:140px 60px 80px;background:var(--darker);position:relative;overflow:hidden;text-align:center;}
+.phero::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(255,214,10,0.1) 0%,transparent 60%);}
+.phero .c{position:relative;z-index:1;max-width:800px;margin:0 auto;}
+.pbadge{display:inline-block;background:var(--gold);color:var(--dark);
+  padding:5px 16px;border-radius:3px;font-family:'Bebas Neue',sans-serif;
+  font-size:14px;letter-spacing:.16em;margin-bottom:20px;}
+.phero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,10vw,100px);
+  letter-spacing:.04em;line-height:.9;margin-bottom:16px;}
+.phero h1 span{color:var(--gold);text-shadow:0 0 60px rgba(255,214,10,0.5);}
+.phero p{color:var(--muted);font-size:16px;line-height:1.7;max-width:580px;
+  margin:0 auto 32px;font-weight:600;}
+.mosaic{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 60px;}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;}
+.strip img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:opacity .2s,transform .3s;}
+.strip img:hover{opacity:.85;transform:scale(1.02);}
+.mosaic img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;
+  border:1px solid var(--border);transition:opacity .2s,transform .3s;}
+.mosaic img:hover{opacity:.9;transform:scale(1.01);}
+@media(max-width:860px){.mosaic{padding:0 24px;grid-template-columns:1fr;}.strip{grid-template-columns:1fr 1fr;}}
+.vibe{padding:72px 60px;text-align:center;}
+.vibe h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,4vw,54px);
+  letter-spacing:.04em;margin-bottom:14px;}
+.vibe h2 span{color:var(--gold);}
+.quote{font-size:clamp(16px,2.2vw,22px);color:var(--gold);font-style:italic;font-weight:300;
+  border-left:4px solid var(--gold);padding:14px 26px;text-align:left;
+  max-width:660px;margin:28px auto;background:rgba(255,214,10,0.05);border-radius:0 6px 6px 0;}
+.ptypes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:880px;margin:36px auto 0;}
+.pt{background:var(--card);border:1px solid rgba(255,214,10,0.2);border-radius:8px;padding:22px;text-align:center;}
+.pt .ei{font-size:34px;margin-bottom:8px;}
+.pt h4{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:.06em;
+  color:var(--gold);margin-bottom:5px;}
+.pt p{color:var(--muted);font-size:12px;line-height:1.5;font-weight:600;}
+.pform{padding:72px 60px;display:grid;grid-template-columns:1fr 1fr;gap:56px;
+  align-items:start;background:rgba(255,214,10,0.02);}
+.pform h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,3.5vw,46px);
+  letter-spacing:.04em;margin-bottom:14px;}
+.pform p{color:var(--muted);font-size:14px;line-height:1.7;margin-bottom:16px;font-weight:600;}
+@media(max-width:860px){
+  .phero{padding:120px 24px 60px;}
+  .vibe,.pform{padding:56px 24px;}
+  .ptypes{grid-template-columns:1fr;}
+  .mosaic{grid-template-columns:1fr;max-height:none;}
+  .mosaic img:first-child{grid-row:span 1;}
+  .pform{grid-template-columns:1fr;}
+}
+</style>
+
+<section class="phero">
+  <div class="c">
+    <div class="pbadge">🎉 Private Parties · Atlanta & Southeast</div>
+    <h1>YOUR PARTY.<br><span>YOUR SOUNDTRACK.</span></h1>
+    <p>Great parties have one thing in common — music that makes people stay. Rodeo Drive The Band brings the songs everyone loves, the energy nobody forgets, and zero stress for the host.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="#book" class="btn btn-gold">Check Availability</a>
+      <a href="https://www.rodeodrivetheband.com/_files/ugd/8ff86c_6540934e72c7402e95341b641198a187.pdf" target="_blank" class="btn-out" style="border-color:var(--gold);color:var(--gold);">Download EPK</a>
+    </div>
+  </div>
+</section>
+<section style="padding:56px 60px 0;background:var(--darker);text-align:center;">
+  <p style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.16em;color:var(--teal);margin-bottom:12px;">🎬 Watch Us Live</p>
+  <div style="max-width:960px;margin:0 auto;border-radius:10px;overflow:hidden;border:2px solid var(--teal);box-shadow:0 0 80px rgba(0,245,212,0.25);aspect-ratio:16/9;">
+    <iframe src="https://player.vimeo.com/video/1097486110?autoplay=0&title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:block;width:100%;height:100%;"></iframe>
+  </div>
+</section>
+
+
+<div class="strip">
+  <img src="/image-07.jpg" alt="Rodeo Drive The Band live">
+  <img src="/image-08.jpg" alt="Rodeo Drive The Band at vineyard">
+  <img src="/private-stage.jpg" alt="Rodeo Drive The Band on stage">
+  <img src="/image-10.jpg" alt="Rodeo Drive The Band performing">
+</div>
+
+<section class="vibe">
+  <h2>The Vibe? <span>Exactly What You Wanted.</span></h2>
+  <div class="quote">"Kind of like a Southern Fleetwood Mac" — equal parts laid-back and electrifying, with harmonies that give you chills.</div>
+  <div class="ptypes">
+    <div class="pt"><div class="ei">🎂</div><h4>Birthdays & Milestones</h4>
+      <p>30th, 40th, 50th, 60th — milestone birthdays deserve live music. We make the honoree feel like a rockstar.</p></div>
+    <div class="pt"><div class="ei">💑</div><h4>Anniversaries</h4>
+      <p>Celebrate the years with songs that tell the story. Intimate or big celebration — we set the perfect tone.</p></div>
+    <div class="pt"><div class="ei">🏡</div><h4>Backyard & Barn Parties</h4>
+      <p>We bring full PA and lighting and transform any backyard or barn into a concert venue.</p></div>
+    <div class="pt"><div class="ei">🏘️</div><h4>HOA & Neighborhood</h4>
+      <p>Pool parties, block parties, neighborhood celebrations. Music that brings the whole community together.</p></div>
+    <div class="pt"><div class="ei">🍾</div><h4>Galas & Fundraisers</h4>
+      <p>Upscale background music for cocktail hour or high-energy sets for dancing — we match the moment.</p></div>
+    <div class="pt"><div class="ei">🎸</div><h4>Just Because</h4>
+      <p>Sometimes you don't need a reason. You just want a great band. We get it. Let's do it.</p></div>
+  </div>
+</section>
+
+
+<!-- LIVE PHOTO GALLERY -->
+<section style="background:var(--darker);padding:56px 0 0;">
+  <p style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.16em;color:var(--teal);text-align:center;margin-bottom:8px;">📸 Live & In The Wild</p>
+  <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,4vw,52px);letter-spacing:.04em;text-align:center;margin-bottom:32px;">This Is What A Great Night Looks Like</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:4px;">
+    <img src="/live-04.jpg" alt="Rodeo Drive The Band full stage" style="width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center top;">
+    <img src="/live-02.jpg" alt="Sarah singing live" style="width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 20%;">
+    <img src="/live-03.jpg" alt="Rob performing live" style="width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center top;">
+    <img src="/live-01.jpg" alt="Rodeo Drive The Band on stage" style="width:100%;aspect-ratio:16/9;object-fit:cover;">
+  </div>
+</section>
+
+<!-- WHAT MAKES US UNIQUE -->
+<section style="padding:64px 60px;background:linear-gradient(135deg,rgba(255,45,120,0.08),rgba(255,214,10,0.04),rgba(0,245,212,0.06));border-top:1px solid var(--border);">
+  <img src="/band-photo-2.jpg" alt="Rodeo Drive The Band" style="max-width:800px;width:100%;margin:0 auto 48px;display:block;filter:drop-shadow(0 0 60px rgba(255,45,120,0.4));border-radius:8px;">
+  <div style="max-width:900px;margin:0 auto;text-align:center;">
+    <p style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.16em;color:var(--teal);margin-bottom:12px;">What Makes Us Different</p>
+    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,4vw,52px);letter-spacing:.04em;margin-bottom:32px;">Songs You Know. A Show You Won't Forget.</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;text-align:left;margin-bottom:40px;">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;">
+        <p style="font-size:28px;margin-bottom:12px;">🎤</p>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.06em;color:var(--teal);margin-bottom:8px;">Sing It With Us</h3>
+        <p style="color:var(--muted);font-size:14px;line-height:1.7;font-weight:600;">We play the songs everyone actually knows — the ones that make a crowd stop talking and start singing. Hotel California. Sweet Caroline. Jolene. Dreams. We pick songs that bring people together, not just fill space.</p>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;">
+        <p style="font-size:28px;margin-bottom:12px;">🕺</p>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.06em;color:var(--gold);margin-bottom:8px;">Built to Dance</h3>
+        <p style="color:var(--muted);font-size:14px;line-height:1.7;font-weight:600;">The dance floor doesn't fill itself. We read the room, build the energy, and know exactly when to drop the song that gets everyone out of their chairs. By the end of the night, people who came to "just watch" are dancing.</p>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;">
+        <p style="font-size:28px;margin-bottom:12px;">🎷</p>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.06em;color:var(--pink);margin-bottom:8px;">Completely Unique</h3>
+        <p style="color:var(--muted);font-size:14px;line-height:1.7;font-weight:600;">Live saxophone. Mandolin. Keys, electric guitar, and acoustic — all from the same guy. Four distinct voices, four real characters. There's no other band in Atlanta that sounds like us, because there's no other band built like us.</p>
+      </div>
+    </div>
+    <p style="color:var(--off-white);font-size:18px;line-height:1.8;font-weight:600;max-width:700px;margin:0 auto;">We're not a corporate package. We're not a tribute act. We're four real musicians who love what we do — and it shows. Every single night.</p>
+  </div>
+</section>
+
+<!-- MEET THE BAND -->
+<section style="padding:72px 60px;background:var(--darker);border-top:1px solid var(--border);">
+  <p style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.16em;color:var(--teal);text-align:center;margin-bottom:8px;">The People Behind The Music</p>
+  <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,4vw,52px);letter-spacing:.04em;text-align:center;margin-bottom:48px;">Meet The Band</h2>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:28px;max-width:1060px;margin:0 auto;">
+    <div style="text-align:center;">
+      <div style="width:120px;height:120px;border-radius:50%;border:3px solid var(--teal);margin:0 auto 16px;overflow:hidden;background:var(--card);">
+        <img src="/rob-profile.jpg" alt="Rob" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+      </div>
+      <p style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.06em;color:var(--teal);margin-bottom:4px;">Rob</p>
+      <p style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px;">Acoustic · Vocals · Bandleader</p>
+      <p style="color:var(--muted);font-size:13px;line-height:1.6;font-weight:600;">The guy who started it all. Rob holds the whole thing together — warm voice, acoustic guitar, and the kind of stage presence that makes a room feel like a living room.</p>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:120px;height:120px;border-radius:50%;border:3px solid var(--gold);margin:0 auto 16px;overflow:hidden;background:var(--card);">
+        <img src="/sarah-profile.jpg" alt="Sarah" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+      </div>
+      <p style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.06em;color:var(--gold);margin-bottom:4px;">Sarah</p>
+      <p style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px;">Sax · Vocals · Lead</p>
+      <p style="color:var(--muted);font-size:13px;line-height:1.6;font-weight:600;">Sarah's saxophone does something most bands can't fake — it turns a good song into a great moment. Her lead vocals are the reason people come back every time.</p>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:120px;height:120px;border-radius:50%;border:3px solid var(--pink);margin:0 auto 16px;overflow:hidden;background:var(--card);">
+        <img src="/beth-profile.jpg" alt="Beth" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+      </div>
+      <p style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.06em;color:var(--pink);margin-bottom:4px;">Beth</p>
+      <p style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px;">Bass</p>
+      <p style="color:var(--muted);font-size:13px;line-height:1.6;font-weight:600;">Beth is the engine. Her bass playing keeps everything grounded and locked in tight. She also designed the band's logo and graphics, and handles booking and outreach. She makes it all look effortless.</p>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:120px;height:120px;border-radius:50%;border:3px solid var(--teal);margin:0 auto 16px;overflow:hidden;background:var(--card);border-color:rgba(0,245,212,0.6);">
+        <img src="/andy-profile.jpg" alt="Andy" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+      </div>
+      <p style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.06em;color:var(--off-white);margin-bottom:4px;">Andy</p>
+      <p style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px;">Mandolin · Guitar · Keys · Vocals</p>
+      <p style="color:var(--muted);font-size:13px;line-height:1.6;font-weight:600;">You don't hear mandolin in a cover band very often. Andy's the reason why. He brings a rootsy, soulful texture to every song that stops people mid-conversation.</p>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:40px;color:var(--muted);font-size:14px;font-weight:600;">Four distinct personalities. One unforgettable show. <a href="#book" style="color:var(--teal);font-weight:800;">Check your date →</a></p>
+</section>
+
+
+<section class="pform" id="book">
+  <div>
+    <h2>Let's Make Your Party <span style="color:var(--gold);">Unforgettable</span></h2>
+    <p>Fill out the form and we'll get back to you fast — usually same day. Questions? Call us at <a href="tel:4702424247" style="color:var(--gold);font-weight:800;">(470) 242-4247</a></p>
+    <img src="/private-image-05.jpg" alt="Rodeo Drive The Band" style="width:100%;border-radius:10px;border:2px solid rgba(255,214,10,0.3);margin-top:20px;">
+  </div>
+  <div class="form-box" style="border-color:rgba(255,214,10,0.3);">
+    <h3 style="color:var(--gold);">Check Availability</h3>
+    <span class="sub">Private Parties · Atlanta & Southeast</span>
+    <form id="pf">
+      
+    <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off">
+    <input type="hidden" name="access_key" value="5ccfd191-8cf3-40cc-976f-6be7f20bc643">
+    <input type="hidden" name="subject" value="Private Party Booking Inquiry — Rodeo Drive The Band">
+    <input type="hidden" name="from_name" value="Rodeo Drive Booking Site">
+    <input type="hidden" name="replyto" value="rodeodrivetheband@gmail.com">
+    <input type="hidden" name="redirect" value="false">
+      <div class="frow">
+        <div class="fg"><label>First Name</label><input type="text" name="first_name" placeholder="Jane" required></div>
+        <div class="fg"><label>Last Name</label><input type="text" name="last_name" placeholder="Smith" required></div>
+      </div>
+      <div class="fg"><label>Phone</label><input type="tel" name="phone" placeholder="(404) 555-1234" required></div>
+      <div class="fg"><label>Email</label><input type="email" name="email" placeholder="jane@email.com" required></div>
+      <div class="frow">
+        <div class="fg"><label>Event Date</label><input type="date" name="event_date" required></div>
+        <div class="fg"><label>Guest Count</label><input type="text" name="guest_count" placeholder="~75 guests"></div>
+      </div>
+      <div class="fg"><label>Event Type</label>
+        <select name="event_type" required>
+          <option value="" disabled selected>What are we celebrating?</option>
+          <option>Birthday party</option>
+          <option>Anniversary celebration</option>
+          <option>Backyard or barn party</option>
+          <option>HOA / neighborhood event</option>
+          <option>Gala or fundraiser</option>
+          <option>Other private event</option>
+        </select></div>
+      <div class="fg"><label>Tell Us About Your Party</label>
+        <textarea name="message" placeholder="Venue, vibe, any special requests…"></textarea></div>
+      <button type="submit" class="btn-submit btn btn-gold">Send Inquiry →</button>
+      <div class="ok" id="pok">✅ Got it! We'll be in touch shortly.</div>
+      <div class="err" id="perr">Something went wrong. Please call <strong>(470) 242-4247</strong>.</div>
+    </form>
+  </div>
+</section>
+
+<!-- SETLIST -->
+<section style="padding:64px 60px;background:rgba(0,245,212,0.02);border-top:1px solid var(--border);text-align:center;">
+  <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(24px,3.5vw,44px);letter-spacing:.04em;margin-bottom:8px;">Songs We Play</h2>
+  <p style="color:var(--muted);font-size:13px;font-weight:600;margin-bottom:36px;">A sample from our rotating repertoire — full list in the <a href="https://www.rodeodrivetheband.com/_files/ugd/8ff86c_6540934e72c7402e95341b641198a187.pdf" target="_blank" style="color:var(--teal);">EPK</a>.</p>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1100px;margin:0 auto;text-align:left;">
+    <div>
+      <p style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:.1em;color:var(--teal);margin-bottom:12px;border-bottom:1px solid var(--border);padding-bottom:7px;">Classic Rock & Southern</p>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Hotel California — Eagles</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Boys of Summer — Don Henley</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">A Horse With No Name — America</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Southern Cross — CSN</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">I Won't Back Down — Tom Petty</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Eminence Front — The Who</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Folsom Prison Blues — Cash</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Maggie May — Rod Stewart</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Wicked Game — Chris Isaak</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Stand By Me — Ben E. King</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Lights — Journey</li>
+      </ul>
+    </div>
+    <div>
+      <p style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:.1em;color:var(--teal);margin-bottom:12px;border-bottom:1px solid var(--border);padding-bottom:7px;">70s & 80s Pop</p>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Baker Street — Gerry Rafferty</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">You Can Call Me Al — Paul Simon</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">You're So Vain — Carly Simon</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Jenny (867-5309) — Tommy Tutone</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Stuck in the Middle — Stealers Wheel</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Summer Breeze — Seals & Crofts</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Sweet Dreams — Eurythmics</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Rocket Man — Elton John</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Time After Time — Cyndi Lauper</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Rikki Don't Lose That Number — Steely Dan</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Careless Whisper — George Michael</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Sweet Caroline — Neil Diamond</li>
+      </ul>
+    </div>
+    <div>
+      <p style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:.1em;color:var(--teal);margin-bottom:12px;border-bottom:1px solid var(--border);padding-bottom:7px;">90s & Alternative</p>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Lovesong — The Cure</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Losing My Religion — REM</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Closer to Fine — Indigo Girls</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">What's Up — 4 Non Blondes</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Good — Better Than Ezra</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Handle With Care — Wilburys</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Hold My Hand — Hootie</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Dreams — Fleetwood Mac</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Under the Milky Way — The Church</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">All I Want Is You — U2</li>
+      </ul>
+    </div>
+    <div>
+      <p style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:.1em;color:var(--teal);margin-bottom:12px;border-bottom:1px solid var(--border);padding-bottom:7px;">Country & Modern</p>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">9 to 5 — Dolly Parton</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Jolene — Dolly Parton</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Me and Bobby McGee — Kristofferson</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Take Me Home Country Roads</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Tennessee Whiskey — Stapleton</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Strawberry Wine — Deana Carter</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">When Doves Cry — Prince</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Smooth Operator — Sade</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Style — Taylor Swift</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Flowers — Miley Cyrus</li>
+        <li style="color:var(--muted);font-size:12px;font-weight:600;">Too Sweet — Hozier</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:32px;color:var(--muted);font-size:13px;font-weight:600;">This is just a sample — we rotate constantly and take requests. <a href="https://www.rodeodrivetheband.com/_files/ugd/8ff86c_6540934e72c7402e95341b641198a187.pdf" target="_blank" style="color:var(--teal);font-weight:800;">Download our full EPK →</a></p>
+</section>
+
+<!-- TESTIMONIALS + PRICING -->
+<section style="padding:56px 60px;background:rgba(255,214,10,0.02);border-top:1px solid rgba(255,214,10,0.2);">
+  <div class="pricing-grid" style="max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;">
+    <div>
+      <p style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.16em;color:var(--gold);margin-bottom:20px;">⭐⭐⭐⭐⭐ Google Reviews</p>
+      <div style="background:var(--card);border:1px solid rgba(255,214,10,0.2);border-radius:12px;padding:24px;margin-bottom:16px;">
+        <p style="color:var(--gold);font-size:13px;margin-bottom:8px;">★★★★★</p>
+        <p style="color:var(--off-white);font-size:14px;line-height:1.7;font-style:italic;margin-bottom:12px;">"Can't say enough about how AMAZING this band was to see. Love their sound and their vibe. Great Atlanta based artist I love to catch when I'm in town!"</p>
+        <p style="color:var(--gold);font-weight:800;font-size:12px;">— Carly Dilbeck · Google Review</p>
+      </div>
+      <div style="background:var(--card);border:1px solid rgba(255,214,10,0.2);border-radius:12px;padding:24px;">
+        <p style="color:var(--gold);font-size:13px;margin-bottom:8px;">★★★★★</p>
+        <p style="color:var(--off-white);font-size:14px;line-height:1.7;font-style:italic;margin-bottom:12px;">"This band is a total blast — killer vocals, laughs, and pure 80s magic. They had the crowd singing, dancing, and laughing all night. Don't miss them if you get the chance!"</p>
+        <p style="color:var(--gold);font-weight:800;font-size:12px;">— Jenn Sweat · Google Review</p>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.16em;color:var(--gold);margin-bottom:20px;">💰 Pricing</p>
+      <p style="color:var(--muted);font-size:15px;line-height:1.7;font-weight:600;margin-bottom:20px;">Most private parties start from <strong style="color:var(--gold);">$1,500</strong> and vary based on set length, location, and production needs. Fill out the form and we'll get you a clear number fast — no obligation.</p>
+      <a href="#book" class="btn btn-gold" style="display:inline-flex;">Get a Quote →</a>
+    </div>
+  </div>
+</section>
+
+
+<script>
+document.getElementById('pf').addEventListener('submit',async function(e){
+  e.preventDefault();
+  var btn=this.querySelector('.btn-submit'),ok=document.getElementById('pok'),
+      err=document.getElementById('perr'),h=this.querySelector('[name="_honey"]');
+  if(h&&h.value)return;
+  btn.disabled=true;btn.textContent='Sending…';
+  ok.style.display='none';err.style.display='none';
+  try{
+    var r=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(this)});
+    var d=await r.json();
+    if(d.success){ok.style.display='block';this.reset();btn.textContent='✓ Sent!';}
+    else throw 0;
+  }catch{err.style.display='block';btn.disabled=false;btn.textContent='Send Inquiry';}
+});
+</script>
+
+<footer>
+  <div class="socials">
+    <a href="http://www.facebook.com/rodeodrivetheband" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/rodeodrivetheband" target="_blank">Instagram</a>
+    <a href="https://www.youtube.com/channel/UC3tsNm5lvoptFYYn3XGGAow" target="_blank">YouTube</a>
+    <a href="https://www.rodeodrivetheband.com/_files/ugd/8ff86c_6540934e72c7402e95341b641198a187.pdf" target="_blank">Download EPK</a>
+    <a href="https://www.rodeodrivetheband.com" target="_blank">Main Website</a>
+  </div>
+  <p>© 2026 Rodeo Drive The Band · Atlanta, GA · <a href="tel:4702424247">(470) 242-4247</a> · <a href="mailto:rodeodrivetheband@gmail.com">rodeodrivetheband@gmail.com</a></p>
+</footer>
+<div class="sticky" id="s">
+  <p>🎸 Book Rodeo Drive The Band for your event</p>
+  <a href="tel:4702424247" class="sticky-btn">📞 (470) 242-4247</a>
+  <button class="sticky-x" onclick="document.getElementById('s').style.transform='translateY(100%)'">✕</button>
+</div>
+<script>
+window.addEventListener('scroll',function(){
+  document.getElementById('s').classList.toggle('on',window.scrollY>400);
+});
+</script>
+</body></html>
