@@ -245,11 +245,11 @@ footer a{color:var(--teal);font-weight:700;}
 <section style="background:var(--darker);padding:56px 0 0;">
   <p style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.16em;color:var(--teal);text-align:center;margin-bottom:8px;">📸 Live & In The Wild</p>
   <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,4vw,52px);letter-spacing:.04em;text-align:center;margin-bottom:32px;">This Is What A Great Night Looks Like</h2>
-  <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:4px;">
-    <img src="/live-04.jpg" alt="Rodeo Drive The Band full stage" style="width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center top;">
-    <img src="/live-02.jpg" alt="Sarah singing live" style="width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 20%;">
-    <img src="/live-03.jpg" alt="Rob performing live" style="width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center top;">
-    <img src="/live-01.jpg" alt="Rodeo Drive The Band on stage" style="width:100%;aspect-ratio:16/9;object-fit:cover;">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;">
+    <img src="/live-04.jpg" alt="Rodeo Drive The Band full stage" style="width:100%;height:auto;display:block;">
+    <img src="/live-02.jpg" alt="Sarah singing live" style="width:100%;height:auto;display:block;">
+    <img src="/live-03.jpg" alt="Rob performing live" style="width:100%;height:auto;display:block;">
+    <img src="/live-01.jpg" alt="Rodeo Drive The Band on stage" style="width:100%;height:auto;display:block;">
   </div>
 </section>
 
